@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner spin;
     ListView lv;
     int helper;
-    String[] classes = {"Choose a grade:", "chemistry", "biology", "physics", "cyber"};
+    String[] classes = {"Choose a grade:", "Chemistry", "Biology", "Physics", "Cyber"};
     String[][] chemistry = {
             {"Dan", "Tom","Beatriz", "Gabriel", "Eric", "Fatima", "Hanna", "Ali", "Avner", "Ofer"},
             {"Alush", "Schechter", "Sabag", "Malul", "Sheetrit", "Shimoni", "Greenberg", "Habib", "Ora", "Anan"},
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             {"07/05/2005", "12/01/2005", "12/06/2005", "09/02/2005", "29/11/2005", "12/11/2005", "01/01/2005", "22/04/2005", "11/06/2005", "02/07/2005"},
             {"0555457689", "0541674681", "0500037681", "0546780335", "0509678833", "0520203134", "0541135411","0595581681", "0520002312", "0523561223"},
     };
-
+    String [] empty = {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +96,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        tv1.setText("First Name:");
+        tv2.setText("Last Name:");
+        tv3.setText("Date of birth:");
+        tv4.setText("Phone Number:");
+        if (position == 0){
+            ArrayAdapter<String> adp2 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, empty);
+            lv.setAdapter(adp2);
+        }
         if (position == 1) {
             ArrayAdapter<String> adp2 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, chemistry[0]);
             lv.setAdapter(adp2);
